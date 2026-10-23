@@ -471,8 +471,8 @@ def main():
     a = ap.parse_args()
     rep, pos, clases, cuentas, hist, com = load(a.datos)
     page, resumen, dc = build(rep, pos, clases, cuentas, hist, com)
-    open(os.path.join(a.out, "correo.html"), "w", encoding="utf-8").write(correo(dc))
     os.makedirs(os.path.join(a.out, "semanas"), exist_ok=True)
+    open(os.path.join(a.out, "correo.html"), "w", encoding="utf-8").write(correo(dc))
     semana = iso(rep.get("Fecha del reporte", ""))
     head = ('<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
             '<meta name="robots" content="noindex,nofollow"></head><body style="margin:0">')
